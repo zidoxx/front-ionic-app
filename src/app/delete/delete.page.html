@@ -1,0 +1,68 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+            <ion-back-button color="danger">Atras</ion-back-button>
+        </ion-buttons>
+        <ion-title>Borrar</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-grid class="padding-pri">
+        <ion-row>
+            <ion-col class="center">
+                <ion-title color="primary" class="title"
+                    >Borrar Pelicula</ion-title
+                >
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col>
+                <ion-item>
+                    <ion-label position="floating"
+                        >Código<ion-text color="danger">*</ion-text></ion-label
+                    >
+                    <ion-input
+                        type="number"
+                        [(ngModel)]="codigo_pelicula"
+                        required
+                        autocomplete="off"
+                    ></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-grid>
+            <ion-row>
+                <ion-col>
+                    <ion-button
+                        color="primary"
+                        expand="block"
+                        type="submit"
+                        (click)="buscarPelicula()"
+                        >Buscar</ion-button
+                    >
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+
+        <ion-grid *ngFor="let info of informacion">
+            <ion-row>Pelicula Encontrada</ion-row>
+            <ion-row>Codigo: {{info.codigo}}</ion-row>
+            <ion-row>Nombre: {{info.nombre}}</ion-row>
+        </ion-grid>
+        <ion-row>
+            <ion-col>
+                <ion-button
+                    color="primary"
+                    expand="block"
+                    type="submit"
+                    color="danger"
+                    (click)="presentAlertConfirm()"
+                    >Borrar</ion-button
+                >
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

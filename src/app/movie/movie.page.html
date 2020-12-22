@@ -1,0 +1,76 @@
+<!-- Danger back button next to a menu button -->
+<ion-header [translucent]="true">
+    <ion-toolbar class="toolbar" color="dark">
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+            <ion-back-button color="danger">Atras</ion-back-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content [scrollEvents]="true" color="dark">
+    <div *ngFor="let item of movie;let index = index;">
+        <img [src]="item.imagen.grande" alt="" />
+        <h4 class="titulo">{{item.nombre}}</h4>
+        <ion-row>
+            <ion-col>
+                <div class="descripcion">
+                    <span>{{item.descripcion}}</span>
+                </div>
+            </ion-col>
+        </ion-row>
+        <ion-row class="botonera">
+            <ion-col>
+                <div class="iconos reproducir">
+                    <ion-icon
+                        name="play"
+                        size="small"
+                        class="ion-align-self-center"
+                    ></ion-icon>
+                    <h5>Reproducir</h5>
+                </div>
+            </ion-col>
+        </ion-row>
+        <ion-row class="botonera">
+            <ion-col>
+                <div class="iconos reproducir" (click)="Descargas()">
+                    <ion-icon
+                        name="arrow-down-circle"
+                        size="small"
+                        class="ion-align-self-center"
+                    ></ion-icon>
+                    <h5>Descargar</h5>
+                </div>
+            </ion-col>
+        </ion-row>
+        <ion-row
+            class="botonera"
+            (click)="presentAlertConfirm(item.nombre, item.codigo)"
+        >
+            <ion-col>
+                <div class="iconos reproducir">
+                    <ion-icon
+                        name="heart"
+                        size="small"
+                        class="ion-align-self-center"
+                    ></ion-icon>
+                    <h5>Favoritos</h5>
+                </div>
+            </ion-col>
+        </ion-row>
+    </div>
+    <!-- Section Peliculas Scroll -->
+    <section class="peliculas">
+        <h4>Populares en Cinespacio</h4>
+        <div class="scrollmenu">
+            <img
+                class="img"
+                *ngFor="let item of movies;let index = index;let isFirst = first"
+                [src]="item.imagen.pequeno"
+                alt="cover bob esponja"
+                [routerLink]="['/movie', item.codigo]"
+                routerDirection="forward"
+            />
+        </div>
+    </section>
+    <!-- Fin Section Peliculas Scroll -->
+</ion-content>

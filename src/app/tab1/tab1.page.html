@@ -1,0 +1,71 @@
+<ion-header [translucent]="true">
+    <ion-toolbar class="toolbar" color="dark">
+        <ion-title slot="start">Watch Now</ion-title>
+        <ion-button>
+            Populares
+            <ion-icon slot="end" name="star"></ion-icon>
+        </ion-button>
+    </ion-toolbar>
+</ion-header>
+<ion-content [scrollEvents]="true" color="dark">
+    <!-- Inicio Carrousel -->
+    <div
+        id="carouselExampleIndicators"
+        class="carousel slide"
+        data-bs-ride="carousel"
+    >
+        <div class="carousel-inner">
+            <div
+                class="carousel-item"
+                *ngFor="let item of movies;let index = index;let isFirst = first"
+                [ngClass]="{active:isFirst}"
+            >
+                <img
+                    [src]="item.imagen.grande"
+                    class="d-block w-100"
+                    [alt]="item.nombre"
+                    [routerLink]="['/movie', item.codigo]"
+                    routerDirection="forward"
+                />
+                <div class="carousel-caption d-none d-md-block">
+                    <h3>{{item.nombre}}</h3>
+                </div>
+            </div>
+        </div>
+        <a
+            class="carousel-control-prev"
+            href="#carouselExampleIndicators"
+            role="button"
+            data-bs-slide="prev"
+        >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </a>
+        <a
+            class="carousel-control-next"
+            href="#carouselExampleIndicators"
+            role="button"
+            data-bs-slide="next"
+        >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </a>
+    </div>
+    <!-- Fin Carrousel -->
+
+    <!-- Section Peliculas Scroll -->
+    <section class="peliculas">
+        <h4>Populares en Cinespacio</h4>
+        <div class="scrollmenu">
+            <img
+                class="img"
+                *ngFor="let item of movies;let index = index;let isFirst = first"
+                [src]="item.imagen.pequeno"
+                alt="cover bob esponja"
+                [routerLink]="['/movie', item.codigo]"
+                routerDirection="forward"
+            />
+        </div>
+    </section>
+    <!-- Fin Section Peliculas Scroll -->
+</ion-content>

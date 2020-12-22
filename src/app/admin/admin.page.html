@@ -1,0 +1,225 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <ion-title slot="start">Admin</ion-title>
+        <ion-button
+            slot="end"
+            [routerLink]="['/update']"
+            routerDirection="forward"
+        >
+            Actualizar
+        </ion-button>
+        <ion-button
+            slot="end"
+            [routerLink]="['/delete']"
+            routerDirection="forward"
+            color="danger"
+        >
+            Borrar
+        </ion-button>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-grid class="padding-pri">
+        <ion-row>
+            <ion-col class="center">
+                <ion-title color="primary" class="title"
+                    >Subir Pelicula</ion-title
+                >
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col>
+                <ion-item>
+                    <ion-label position="floating"
+                        >Código<ion-text color="danger">*</ion-text></ion-label
+                    >
+                    <ion-input
+                        type="number"
+                        [(ngModel)]="codigo"
+                        required
+                        autocomplete="off"
+                        clearInput
+                    ></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col>
+                <ion-item>
+                    <ion-label position="floating"
+                        >Nombre<ion-text color="danger">*</ion-text></ion-label
+                    >
+                    <ion-input
+                        type="text"
+                        [(ngModel)]="nombre"
+                        required
+                        autocomplete="off"
+                        clearInput
+                    ></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col>
+                <ion-item>
+                    <ion-label position="floating"
+                        >Duración<ion-text color="danger"
+                            >*</ion-text
+                        ></ion-label
+                    >
+                    <ion-input
+                        type="text"
+                        [(ngModel)]="duracion"
+                        required
+                        autocomplete="off"
+                        clearInput
+                    ></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col>
+                <ion-item>
+                    <ion-label position="floating"
+                        >Descripcion<ion-text color="danger"
+                            >*</ion-text
+                        ></ion-label
+                    >
+                    <ion-input
+                        type="text"
+                        [(ngModel)]="descripcion"
+                        required
+                        autocomplete="off"
+                        clearInput
+                    ></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col>
+                <ion-item>
+                    <ion-label position="floating"
+                        >Elenco<ion-text color="danger">*</ion-text></ion-label
+                    >
+                    <ion-input
+                        type="text"
+                        [(ngModel)]="elenco"
+                        required
+                        autocomplete="off"
+                        clearInput
+                    ></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-item>
+                    <ion-label position="floating"
+                        >Creadores<ion-text color="danger"
+                            >*</ion-text
+                        ></ion-label
+                    >
+                    <ion-input
+                        type="text"
+                        [(ngModel)]="creadores"
+                        required
+                        autocomplete="off"
+                        clearInput
+                    ></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-item>
+                    <ion-label position="floating"
+                        >Imagen Cover<ion-text color="danger"
+                            >*</ion-text
+                        ></ion-label
+                    >
+                    <ion-input
+                        type="text"
+                        [(ngModel)]="pequeno"
+                        required
+                        autocomplete="off"
+                        clearInput
+                    ></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-item>
+                    <ion-label position="floating"
+                        >Imagen Banner<ion-text color="danger"
+                            >*</ion-text
+                        ></ion-label
+                    >
+                    <ion-input
+                        type="text"
+                        [(ngModel)]="grande"
+                        required
+                        autocomplete="off"
+                        clearInput
+                    ></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-item>
+                    <ion-label position="floating"
+                        >Categoria<ion-text color="danger"
+                            >*</ion-text
+                        ></ion-label
+                    >
+                    <ion-input
+                        type="number"
+                        [(ngModel)]="co_categoria"
+                        required
+                        autocomplete="off"
+                        clearInput
+                    ></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-item>
+                    <ion-label position="floating"
+                        >Clasificación<ion-text color="danger"
+                            >*</ion-text
+                        ></ion-label
+                    >
+                    <ion-input
+                        type="number"
+                        [(ngModel)]="co_clasificacion"
+                        required
+                        autocomplete="off"
+                        clearInput
+                    ></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <ion-button
+                    color="primary"
+                    expand="block"
+                    type="submit"
+                    (click)="agregarPelicula()"
+                    color="success"
+                    >Guardar</ion-button
+                >
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

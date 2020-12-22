@@ -1,0 +1,139 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+            <ion-back-button color="danger">Atras</ion-back-button>
+        </ion-buttons>
+        <ion-title>Actualizar</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-grid class="padding-pri">
+        <ion-row>
+            <ion-col class="center">
+                <ion-title color="primary" class="title"
+                    >Actualizar Pelicula</ion-title
+                >
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col>
+                <ion-item>
+                    <ion-label position="floating"
+                        >Código<ion-text color="danger">*</ion-text></ion-label
+                    >
+                    <ion-input
+                        type="number"
+                        [(ngModel)]="codigo_pelicula"
+                        required
+                        autocomplete="off"
+                    ></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-button
+                    color="primary"
+                    expand="block"
+                    type="submit"
+                    (click)="buscarPelicula()"
+                    >Buscar</ion-button
+                >
+            </ion-col>
+        </ion-row>
+        <ion-row *ngIf="myFlag">
+            <ion-col>
+                <ion-item *ngFor="let dato of datos">
+                    <ion-label position="floating"
+                        >Nombre<ion-text color="danger">*</ion-text></ion-label
+                    >
+                    <ion-input
+                        *ngIf="datos"
+                        type="text"
+                        [(ngModel)]="nombre"
+                        required
+                        autocomplete="off"
+                        clearInput
+                        placeholder="{{dato.nombre}}"
+                    ></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col>
+                <ion-item *ngFor="let dato of datos">
+                    <ion-label position="floating"
+                        >Descripcion<ion-text color="danger"
+                            >*</ion-text
+                        ></ion-label
+                    >
+                    <ion-input
+                        *ngIf="datos"
+                        type="text"
+                        [(ngModel)]="descripcion"
+                        required
+                        autocomplete="off"
+                        clearInput
+                        placeholder="{{dato.descripcion}}"
+                    ></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col>
+                <ion-item *ngFor="let dato of datos">
+                    <ion-label position="floating"
+                        >Imagen Cover<ion-text color="danger"
+                            >*</ion-text
+                        ></ion-label
+                    >
+                    <ion-input
+                        *ngIf="datos"
+                        type="text"
+                        [(ngModel)]="pequeno"
+                        required
+                        clearInput
+                        placeholder="{{dato.imagen.pequeno}}"
+                    ></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-item *ngFor="let dato of datos">
+                    <ion-label position="floating"
+                        >Imagen Banner<ion-text color="danger"
+                            >*</ion-text
+                        ></ion-label
+                    >
+                    <ion-input
+                        *ngIf="datos"
+                        type="text"
+                        [(ngModel)]="grande"
+                        required
+                        autocomplete="off"
+                        clearInput
+                        placeholder="{{dato.imagen.grande}}"
+                    ></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col>
+                <ion-button
+                    color="primary"
+                    expand="block"
+                    type="submit"
+                    (click)="actualizarPelicula()"
+                    >Actualizar</ion-button
+                >
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>
